@@ -1,0 +1,19 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Bac à eau</title>
+<style>
+html,body{margin:0;height:100%;overflow:hidden;background:#000;font:12px system-ui,sans-serif;color:#e8f4ff}
+#ui{position:fixed;left:8px;top:8px;background:rgba(8,16,28,.72);padding:8px 10px;border-radius:8px;display:grid;grid-template-columns:auto auto;gap:4px 8px;align-items:center}
+#ui select,#ui input{font:inherit}
+#ui button{font:inherit;grid-column:span 2}
+#ui.cache{display:none}
+</style></head>
+<body><div id="app" style="width:100%;height:100%"></div>
+<div id="ui">
+  <label>Qualité</label><select id="q"><option>ultra</option><option>haute</option><option>moyenne</option></select>
+  <label>Ambiance</label><select id="env"><option>jour</option><option>nuit</option></select>
+  <label>Type</label><select id="type"><option>eau</option><option>acide</option><option>lave</option><option>glace</option></select>
+  <label>Soleil (azimut)</label><input id="az" type="range" min="-180" max="180" value="35">
+  <label>Soleil (hauteur)</label><input id="el" type="range" min="3" max="85" value="38">
+  <label>Caméra</label><select id="camMode"><option value="orbite">orbite</option><option value="fixe">fixe</option></select>
+  <button id="plouf">Plouf !</button>
+</div>
+<script type="module" src="./water.js"></script></body></html>

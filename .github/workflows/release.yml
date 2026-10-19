@@ -1,0 +1,26 @@
+# Publie la version téléchargeable (un seul fichier HTML) à chaque étiquette de version (v1.0.0…)
+name: Version téléchargeable
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run release
+      - run: mv release/index.html release/kobi-et-ecrou.html
+      - run: |
+          gh release create "$GITHUB_REF_NAME" release/kobi-et-ecrou.html --title "Kobi & Écrou $GITHUB_REF_NAME" --notes "Télécharger kobi-et-ecrou.html puis l'ouvrir dans Chrome ou Edge (double-clic) : aucun autre fichier, installation ni connexion nécessaire."
+        env:
+          GH_TOKEN: ${{ github.token }}

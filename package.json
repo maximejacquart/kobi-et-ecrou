@@ -1,0 +1,24 @@
+{
+  "name": "kobi-et-ecrou",
+  "private": true,
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "Kobi & Écrou — jeu d'action-plateforme 3D dans le navigateur (Three.js)",
+  "type": "module",
+  "scripts": {
+    "prestart": "node scripts/ensure-deps.mjs",
+    "start": "vite --open",
+    "dev": "vite",
+    "build": "vite build",
+    "release": "vite build --mode release",
+    "preview": "vite preview --open"
+  },
+  "dependencies": {
+    "opentype.js": "^2.0.0",
+    "three": "^0.186.1"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.64.1",
+    "vite": "^8.3.4"
+  }
+}
